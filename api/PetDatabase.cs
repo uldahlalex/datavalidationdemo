@@ -14,3 +14,13 @@ public class Pet
     public string Id { get; set; }
     
 }
+
+public class PetResponseDto
+{
+    public string PetName { get; set; }
+    
+    public PetResponseDto(Pet p)
+    {
+        PetName = p.Name;
+    }
+}

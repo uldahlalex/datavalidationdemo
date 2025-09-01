@@ -10,7 +10,7 @@ public class UnitTest1
     {
         var db = new PetDatabase();
         var service = new PetService(db);
-        var invalidPet = new CreatePetRequestDto()
+        var invalidPet = new CreateOrUpdatePetRequestDto()
         {
             Age = -1,
             Name = "asdækjsadjlksad"
@@ -23,11 +23,17 @@ public class UnitTest1
     {
         var db = new PetDatabase();
         var service = new PetService(db);
-        var invalidPet = new CreatePetRequestDto()
+        var invalidPet = new CreateOrUpdatePetRequestDto()
         {
             Age = 12,
             Name = ""
         };
         Assert.Throws<ValidationException>(() => service.CreatePet(invalidPet));
+    }
+
+    [Fact]
+    public void GetAllPets_ShouldReturnAllPets()
+    {
+        
     }
 }
