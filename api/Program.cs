@@ -6,8 +6,13 @@ builder.Services.AddSingleton<PetDatabase>();
 builder.Services.AddScoped<PetService>();
 builder.Services.AddControllers();
 
-var app = builder.Build();
 
+builder.Services.AddOpenApiDocument();
+
+
+var app = builder.Build();
+app.UseOpenApi();
+app.UseSwaggerUi();
 app.MapControllers();
 
 app.Run();
